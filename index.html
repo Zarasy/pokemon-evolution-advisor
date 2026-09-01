@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A small decision helper that answers: Should I evolve this Pokémon?" />
+  <title>Should I Evolve This Pokémon?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="eyebrow"><span class="dot"></span> EVOLUTION ADVISOR</div>
+      <h1>Should I evolve<br><span>this Pokémon?</span></h1>
+      <p class="lede">Search any Pokémon. We’ll inspect its evolution chain and turn the requirements into a simple recommendation.</p>
+    </header>
+
+    <section class="search-card" aria-labelledby="search-heading">
+      <h2 id="search-heading" class="sr-only">Choose a Pokémon</h2>
+      <form id="pokemon-form">
+        <div class="field-group grow">
+          <label for="pokemon-input">Pokémon name or Pokédex #</label>
+          <div class="input-wrap">
+            <input id="pokemon-input" name="pokemon" type="text" placeholder="e.g. Pikachu or 25" autocomplete="off" required />
+            <div id="suggestions" class="suggestions" hidden></div>
+          </div>
+        </div>
+        <div class="field-group level-field">
+          <label for="level-input">Current level</label>
+          <input id="level-input" name="level" type="number" min="1" max="100" value="25" required />
+        </div>
+        <button type="submit" class="primary-btn">Check evolution <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="helper">Try: Bulbasaur, Eevee, Haunter, Riolu, Charcadet</p>
+    </section>
+
+    <section id="status" class="status" aria-live="polite"></section>
+
+    <section id="result" class="result-card" hidden>
+      <div class="pokemon-panel">
+        <div class="sprite-stage">
+          <div class="sprite-glow"></div>
+          <img id="pokemon-image" alt="" />
+          <div id="image-fallback" class="image-fallback" hidden>?</div>
+        </div>
+        <div class="pokemon-meta">
+          <p id="pokemon-number" class="pokemon-number"></p>
+          <h2 id="pokemon-name"></h2>
+          <div id="types" class="types"></div>
+        </div>
+      </div>
+
+      <div class="decision-panel">
+        <p class="mini-label">RECOMMENDATION</p>
+        <div id="verdict" class="verdict"></div>
+        <h3 id="decision-title"></h3>
+        <p id="decision-copy" class="decision-copy"></p>
+        <div id="requirements" class="requirements"></div>
+      </div>
+    </section>
+
+    <section id="chain-section" class="chain-section" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="mini-label">EVOLUTION PATH</p>
+          <h2>Where it can go next</h2>
+        </div>
+        <p id="chain-note" class="chain-note"></p>
+      </div>
+      <div id="evolution-chain" class="evolution-chain"></div>
+    </section>
+
+    <section class="method-card">
+      <p class="mini-label">HOW THE ANSWER WORKS</p>
+      <div class="method-grid">
+        <div><strong>01</strong><span>Find the Pokémon and its evolution chain.</span></div>
+        <div><strong>02</strong><span>Compare your level with level-based requirements.</span></div>
+        <div><strong>03</strong><span>Flag item, trade, friendship and other special evolutions.</span></div>
+      </div>
+      <p class="disclaimer">Game mechanics can vary between titles. This tool summarizes evolution data from PokéAPI and is intended as a quick decision aid.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for the Pokémon case · Data from <a href="https://pokeapi.co/" target="_blank" rel="noreferrer">PokéAPI</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
