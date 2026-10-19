@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéAdvisor | Evolution Decision Tool</title>
+    <link rel="stylesheet" href="./style.css?v=3">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">◉</span>
+            <div>
+                <h1>PokéAdvisor</h1>
+                <small>EVOLUTION DECISION TOOL</small>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h2>Should I evolve my Pokémon?</h2>
+            <p>Compare stats. Explore evolutions. Make smarter decisions.</p>
+        </section>
+
+        <section class="search-panel">
+            <label for="pokemon-search">Choose your Pokémon</label>
+            <input
+                type="text"
+                id="pokemon-search"
+                placeholder="Search Pokémon by name..."
+                autocomplete="off"
+            >
+            <div id="search-results" class="search-results"></div>
+        </section>
+
+        <p id="status">Loading Pokémon data...</p>
+
+        <section id="pokemon-section" class="hidden">
+
+            <div class="pokemon-grid">
+
+                <article class="pokemon-card">
+                    <span class="card-label">CURRENT POKÉMON</span>
+                    <img id="current-image" alt="Current Pokémon">
+                    <h3 id="current-name"></h3>
+                    <p id="current-type"></p>
+                    <div class="stat-total" id="current-total"></div>
+                    <small>Total base stats</small>
+                </article>
+
+                <article class="pokemon-card">
+                    <span class="card-label">NEXT EVOLUTION</span>
+                    <img id="evolution-image" alt="Evolution Pokémon">
+                    <h3 id="evolution-name"></h3>
+                    <p id="evolution-type"></p>
+                    <div class="stat-total evolution-total" id="evolution-total"></div>
+                    <small>Total base stats</small>
+                </article>
+
+            </div>
+
+            <section class="stats-panel">
+                <h3>Stats Comparison</h3>
+                <div id="stats-comparison"></div>
+            </section>
+
+            <section class="recommendation-panel">
+                <h3 id="recommendation-title"></h3>
+                <p id="recommendation-text"></p>
+            </section>
+
+        </section>
+
+    </main>
+
+    <footer>
+        PokéAdvisor · Pokémon Evolution Analysis
+    </footer>
+
+    <script src="./script.js?v=3"></script>
+</body>
+</html>
